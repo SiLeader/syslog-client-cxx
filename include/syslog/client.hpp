@@ -110,7 +110,6 @@ class SyslogClient {
     createDatagram(ss, severity, timestamp, message);
 
     auto data_str = ss.str();
-    std::cout << data_str << std::endl;
     ::sendto(socket_, data_str.c_str(), data_str.size(), 0,
              reinterpret_cast<sockaddr*>(&peer_), sizeof(peer_));
   }
