@@ -4,10 +4,17 @@
 
 #pragma once
 
+#ifdef __XTENSA__ // ESP32
+#include <lwip/err.h>
+#include <lwip/netdb.h>
+#include <lwip/sockets.h>
+#include <lwip/sys.h>
+#else // Linux
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <zconf.h>
+#endif
 
 #include <chrono>
 #include <cstdint>
